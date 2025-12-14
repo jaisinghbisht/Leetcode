@@ -21,7 +21,10 @@ using namespace std;
 class Solution
 {
 public:
-    int trap(vector<int> &height)
+    // Time Complexity: O(n), Space Complexity: O(n)
+    // where n is the size of the height array
+    // using prefix max and suffix max arrays
+    int trapUsingPrefixMaxAndSuffixMax(vector<int> &height)
     {
         // we need to efficiently caculate the max height to the left and right of each index
         // we can do this by precomputing prefix max and suffix max arrays
@@ -47,5 +50,34 @@ public:
             }
         }
         return water;
+    }
+
+    // Time Complexity: O(n), Space Complexity: O(1)
+    // where n is the size of the height array
+    // using two pointers and left max and right max variables
+    int trapUsingLeftMaxAndRightMax(vector<int> &height)
+    {
+        int leftMax = 0, rightmax = 0, total = 0, l = 0, r = height.size() - 1;
+        while (l < r)
+        {
+            // we process the smaller height side, since the water trapped is limited by the smaller side
+            if (height[l] <= height[r])
+            {
+                if (height[l] < leftMax)
+                {
+                    total += leftMax - height[l];
+                }
+                else
+                {
+                    leftMax = height[l];
+                }
+                l++;
+            }
+            else
+            {
+                r++;
+            }
+        }
+        return total;
     }
 };
