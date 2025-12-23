@@ -29,8 +29,8 @@ static bool comp(const pair<int, int> &a, const pair<int, int> &b)
 // where n is the number of meetings
 int maxMeetings(vector<int> &start, vector<int> &end)
 {
-    // {index, {startTime, endTime}}
     int n = start.size();
+    // {startTime, endTime}
     vector<pair<int, int>> meetings;
     for (int i = 0; i < n; i++)
     {
