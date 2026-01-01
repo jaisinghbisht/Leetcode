@@ -30,11 +30,13 @@ vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInter
 {
     vector<vector<int>> res;
     int i = 0, n = intervals.size();
+    // Insert all intervals that come before the new interval
     while (i < n && intervals[i][1] < newInterval[0])
     {
         res.push_back(intervals[i]);
         i++;
     }
+    // Merge overlapping intervals
     while (i < n && intervals[i][0] <= newInterval[1])
     {
         newInterval[0] = min(newInterval[0], intervals[i][0]);
@@ -42,6 +44,7 @@ vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInter
         i++;
     }
     res.push_back(newInterval);
+    // Insert all intervals that come after the new interval
     while (i < n)
     {
         res.push_back(intervals[i]);
