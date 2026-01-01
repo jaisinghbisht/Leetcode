@@ -1,7 +1,6 @@
 /*
 https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
 N meetings in one room
-Difficulty: EasyAccuracy: 45.3%Submissions: 375K+Points: 2Average Time: 20m
 You are given timings of n meetings in the form of (start[i], end[i]) where start[i] is the start time of meeting i and end[i] is the finish time of meeting i. Return the maximum number of meetings that can be accommodated in a single meeting room, when only one meeting can be held in the meeting room at a particular time.
 Note: The start time of one chosen meeting can't be equal to the end time of the other chosen meeting.
 Examples :
